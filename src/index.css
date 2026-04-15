@@ -2092,3 +2092,78 @@ a:hover {
 .toast-close:hover {
   opacity: 0.7;
 }
+
+/* ==========================================================
+   PWA INSTALL PROMPT (mobile-only bottom sheet)
+   ========================================================== */
+.pwa-prompt {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  padding: 1rem;
+  animation: pwa-slide-up 0.4s ease-out;
+}
+@keyframes pwa-slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@media (max-width: 768px) {
+  .pwa-prompt { display: block; }
+}
+.pwa-prompt-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  background: var(--secondary-dark);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.5);
+}
+.pwa-prompt-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: var(--accent);
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+.pwa-prompt-text { flex: 1; min-width: 0; }
+.pwa-prompt-title { font-size: 0.875rem; font-weight: 600; color: var(--light); }
+.pwa-prompt-desc { font-size: 0.72rem; color: var(--light); opacity: 0.45; margin-top: 2px; }
+.pwa-prompt-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.pwa-prompt-install {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--accent);
+  color: var(--primary-dark);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pwa-prompt-install:hover { background: var(--accent-hover); }
+.pwa-prompt-close {
+  padding: 4px;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  color: var(--light);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.pwa-prompt-close:hover { opacity: 0.7; }
